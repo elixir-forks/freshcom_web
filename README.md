@@ -6,6 +6,16 @@ The web front end for [Freshcom](https://github.com/freshcom/freshcom).
 
 A quick start guide to install, setup and run Freshcom Web.
 
+The quick way to install and setup:
+
+```bash
+./setup.sh
+```
+
+Now to run Freshcom Web interface just follow the instructions in the [Run](#Run) section.
+
+If you prefer to do all by yourself see [Install](#Install) and [Setup](#Setup) sections.
+
 ### Install
 
 ```bash
@@ -42,16 +52,20 @@ Create and migrate the event store database with:
 mix event_store.create -r Freshcom.Repo && mix event_store.init -r Freshcom.Repo
 ```
 
+### Run
+
+
 To start your Phoenix server:
 ```bash
 mix phx.server
 ```
 
-### Run
-
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+
+## Deploy to Production
+
+Ready to run in production? Please [check the Phoenix deployment guides](http://www.phoenixframework.org/docs/deployment).
 
 
 ## Learn more
