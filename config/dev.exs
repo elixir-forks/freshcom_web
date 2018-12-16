@@ -2,9 +2,10 @@ use Mix.Config
 
 config :eventstore, EventStore.Storage,
   serializer: Commanded.Serialization.JsonSerializer,
-  username: System.get_env("DB_USERNAME"),
+  username: System.get_env("EVENT_STORE_USERNAME") || "postgres",
   database: "freshcom_eventstore_dev",
-  hostname: "localhost",
+  hostname: System.get_env("EVENT_STORE_HOSTNAME") || "localhost",
+  password: System.get_env("EVENT_STORE_PASSWORD") || raise("Please provide the value for env var: EVENT_STORE_PASSWORD"),
   pool_size: 10
 
 config :commanded_ecto_projections,
@@ -17,13 +18,15 @@ config :logger, :console, format: "[$level] $message\n"
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
 
+
 config :fc_state_storage, adapter: FCStateStorage.DynamoAdapter
 
 config :freshcom, Freshcom.Repo,
   adapter: Ecto.Adapters.Postgres,
+  username: System.get_env("PROJECTIONS_DB_USERNAME") || "postgres",
   database: "freshcom_projections_dev",
-  hostname: "localhost",
-  username: System.get_env("DB_USERNAME"),
+  hostname: System.get_env("PROJECTIONS_DB_HOSTNAME") || "localhost",
+  password: System.get_env("PROJECTIONS_DB_PASSWORD") || raise("Please provide the value for env var: PROJECTIONS_DB_PASSWORD"),
   pool_size: 10
 
 config :freshcom_web, FreshcomWeb.Endpoint,
