@@ -6,6 +6,16 @@ The web front end for [Freshcom](https://github.com/freshcom/freshcom).
 
 A quick start guide to install, setup and run Freshcom Web.
 
+### Environment Variables
+
+Setup database credentials for the Event Store and Projection Database in the
+`freshcom_web/.env`.
+
+Copy the file `freshcom_web/.env.example` to `freshcom_web/.env` and edit it
+as needed.
+
+### Quick Start
+
 The quick way to install and setup:
 
 ```bash
@@ -38,9 +48,6 @@ mix deps.get && mix compile
 ```
 
 ### Setup
-
-Setup database credentials for the Event Store and Projection Database in
-`freshcom_web/config/dev.exs`.
 
 Create and migrate the projections database with:
 ```bash
